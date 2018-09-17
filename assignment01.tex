@@ -1,36 +1,45 @@
 \documentclass{article}
 \usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm,a4paper]{geometry}
 \usepackage{graphicx}
+\usepackage{mwe}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\usepackage[toc,page]{appendix}
+\usepackage{subcaption}
 \usepackage[utf8]{inputenc}
 \setlength\parindent{24pt}
-\title{Technical report about how to use the utility Git \\ Data mining class assignment 01}
-\author{Name: Dohyun Kwon \\ Student ID: 2018120191}
-\date{September 2018}
 
 \begin{document}
 
-\maketitle
+\title{Technical report about how to use the utility Git \\ 
+       Data mining class assignment 01}
 
-We can easily control the version of developing software and share ongoing/completed projects with teammates efficiently by utilizing the outstanding tool, \textit{Git}. In addition, we can contribute other developers' open source projects with some simple commands of Git. In this short article, we navigate the overall features of the useful utility Git with some terms with detailed description and how to use the Git appropriately by examining use cases. 
+\author[1]{Dohyun Kwon (Student ID: 2018120191)}
+\affil[1]{School of Computer Science and Engineering, Chung-Ang University\\ 
+221 Heukseok, Dongjak, Seoul~156-756, Korea}
+\date{kdh1102@cau.ac.kr}
+\maketitle
+We can easily control the version of developing software and share ongoing/completed projects with teammates efficiently by utilizing the outstanding tool, \texttt{Git}. In addition, we can contribute other developers' open source projects with some simple commands of Git. In this short article, we navigate the overall features of the useful utility Git with some terms with detailed description and how to use the Git appropriately by examining use cases. 
 
 \section{Introduction of the Git}
 % 1. 깃이 무엇인지 설명
-The Git is the most widely used modern version control system in the world today. Vast amounts of open source codes are efficiently shared and controlled by users with different objectives: version control, cooperation, and sharing source code between various communities. Git users can download source code for studying others' work or upload their own work for sharing it with other researchers. In order to utilize the Git, knowledge of some terms and procedures are needed.  
+\hspace*{2mm}The Git is the most widely used modern version control system in the world today. Vast amounts of open source codes are efficiently shared and controlled by users with different objectives: version control, cooperation, and sharing source code between various communities. Git users can download source code for studying others' work or upload their own work for sharing it with other researchers. In order to utilize the Git, knowledge of some terms and procedures are needed.  
 
 \subsection{Several terms of Git}
 % 1-1. 깃의 용어
 % itemize
 \begin{itemize}
     \item Repository \\
-    \hspace*{1mm} The \textbf{repository} is a storage in which all of projects are saved. The repository can be divided as follows: remote repository and local repository. The remote repository is stored in the \textit{Github} server, which manages the created Git remote repository from users in all over the world. On the other hand, the local repository stands for literally local repository, which is created in user's laptop. The two repositories are jointly connected to upload or download projects interchangeably with Git commands. \\ 
+    \hspace*{1mm} The \textbf{repository} is a storage in which all of projects are saved. The repository can be divided as follows: remote repository and local repository. The remote repository is stored in the \texttt{Github} server, which manages the created Git remote repository from users in all over the world. On the other hand, the local repository stands for literally local repository, which is created in user's laptop. The two repositories are jointly connected to upload or download projects interchangeably with Git commands. \\ 
     \hspace*{1mm} Users can add a $README.md$ file which descripts the corresponding project including its objective and overview. They can upload their projects which are stored in their own local repository to the Git repository. In addition, they can download their own work or others' open source project from the Git repositories. The procedure of downloading and uploading a file (or entire project files) can be easily applied through predefined Git commands. Corresponding Git commands are introduced in following items in details. 
     \item Add and commit \\ 
-    \hspace*{1mm} Files in local repository (working directory in Fig.~\ref{fig:add_command}) could be added to \textit{index}, which remains variety of versions of source code of working directory with command \textbf{add}. The index can be described as $version$ $control$ $tree$, and user can settle the final version of local repository with the command \textbf{commit}. Now, the user is ready to apply the latest files of local repository to the remote Git repository. Corresponding command \textbf{push} is introduced in following item. 
+    \hspace*{1mm} Files in local repository (working directory in Fig.~\ref{fig:add_command}) could be added to \texttt{index}, which remains variety of versions of source code of working directory with command \textbf{add}. The index can be described as $version$ $control$ $tree$, and user can settle the final version of local repository with the command \textbf{commit}. Now, the user is ready to apply the latest files of local repository to the remote Git repository. Corresponding command \textbf{push} is introduced in following item. 
     
     \begin{figure}[h!]
         \centering
         \includegraphics[width = \linewidth]{add_commit.jpeg}
-        \caption{The description of git commands: add and commit. The local repository consists of working directory, index, and head as above. Various versions of source codes could be added to index (staging) and one of them could be applied to the head with commit command.}
+        \caption{The description of Git commands: add and commit. The local repository consists of working directory, index, and head as above. Various versions of source codes could be added to index (staging) and one of them could be applied to the head with commit command.}
         \label{fig:add_command}
     \end{figure}
     
@@ -38,21 +47,87 @@ The Git is the most widely used modern version control system in the world today
     \hspace*{1mm} Firstly, user can apply her updated source codes in local repository to remote repository by utilizing the command \textbf{push}. On the other hand, the command \textbf{pull} enables user to update the local repository with files of remote repository. To sum up, users can update their local/remote repository with the command pull and push respectively. In case of some crash issues regarding mismatching between local repository and remote repository, users should manually upload/download source files.
     
     \item Branch \\
-    \hspace*{1mm} If there are many teammates with an ongoing project, it is difficult to remain a central version of source files. For addressing this challenge, the Git supports remarkable function, \textbf{branch}, which enables teammates to hold their own version of main source files. This procedure is called as \textit{branch off}. After completing their own work, they can \textit{merge} their work to the main files.
+    \hspace*{1mm} If there are many teammates with an ongoing project, it is difficult to remain a central version of source files. For addressing this challenge, the Git supports remarkable function, \textbf{branch}, which enables teammates to hold their own version of main source files. This procedure is called as \texttt{branch off}. After completing their own work, they can \texttt{merge} their work to the main files.
 
 \end{itemize}
 
 \section{How to use the Git}
 % 2. 깃 사용 예시
-In this section, overall process for utilizing the useful version control utility, Git, is introduced in detail. Specifically, we navigate the use case of Git for two approaches: command line interface (CLI) and graphic user interface (GUI). In case of CLI use case, aforementioned commands are used in CLI environment for accomplishing each procedure. On the other hand, GUI based Git tool, \textbf{GitKraken} is introduced as well.
+\hspace*{2mm}In this section, overall process for utilizing the useful version control utility, Git, is introduced in detail. Specifically, we navigate the use case of Git with command line interface (CLI). In case of CLI use case, aforementioned commands are used in CLI environment for accomplishing each procedure. It contains initializing the local git repository, cloning the remote repository, and commit command for applying some modification of local files to remote repository. Entire process for utilizing the CLI-based Git is fully explained with some figures with respect to corresponding Git commands with appropriate order considering the sequential operation process of Git. 
 
-\subsection{Command line interface (CLI) use case: Git bash}
+\subsection{Command line interface (CLI) based Git}
 % 2-1. CLI 사용
+\hspace*{2mm}In this subsection, CLI-based Git manual is proposed with several commands and corresponding figures. The commands includes: init, add, commit, status, push, and pull. Each of commands helps readers for bootstrapping their cooperation with teammates. Apart from aforementioned Git commands, \texttt{init} and \texttt{status} are newly introduced for initializing the local repository and confirming the status of local repository. Detailed description of each Git commands with figures are proposed for several subsections.
 
-\subsection{Graphic user interface (GUI) use case: GitKraken}
-% 2-2. GUI 사용 (크라켄)
+\subsubsection{Connect the local repository to remote repository: init, add, commit, and status}
+\hspace*{2mm}The user needs to create a directory which stores files from remote repository by typing a Git command \texttt{init} as Fig.~\ref{fig:CLI_commands_init_clone_etc} (a). This command enable the local repository to connect with remote Git repository. For utilizing this command, user just type the command in terminal as \texttt{sudo git init}. After initializing the local repository as a Git repository, user can \texttt{clone} the remote repository as Fig.~\ref{fig:CLI_commands_init_clone_etc} (b). As a result, entire files in remote repository are downloaded to the designated local repository. Corresponding result can be confirmed as Fig.~\ref{fig:CLI_commands_init_clone_etc} (c). Lastly, user can apply the modification of files within local repository with \texttt{add} and apply corresponding update to the remote repository by utilizing \texttt{commit} command as Fig.~\ref{fig:CLI_commands_init_clone_etc} (d). 
+\begin{figure*}[t]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth, height = 6cm]{CLI_init.jpeg}
+            \caption[Network2]%
+            {{\small Git command: \texttt{init}}}    
+            \label{fig:mean and std of net14}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}  
+            \centering 
+            \includegraphics[width=\textwidth, height = 6cm]{CLI_clone.jpeg}
+            \caption[Network2]%
+            {{\small Git command: \texttt{clone}}}    
+            \label{fig:mean and std of net24}
+        \end{subfigure}
+        \vskip\baselineskip
+        \begin{subfigure}[b]{0.475\textwidth}   
+            \centering 
+            \includegraphics[width=\textwidth, height=6cm]{CLI_clone_result.jpeg}
+                        \caption[Network2]%
+            {{\small Result of Git command \texttt{clone}}}    
+            \label{fig:mean and std of net34}
+        \end{subfigure}
+        \quad
+        \begin{subfigure}[b]{0.475\textwidth}   
+            \centering 
+            \includegraphics[width=\textwidth, height=6cm]{CLI_add_commit_status.jpeg}
+                        \caption[Network2]%
+            {{\small Modified files can be updated to remote reposiroty with \texttt{add} and \texttt{commit}}}    \label{fig:mean and std of net44}
+        \end{subfigure}
+        \caption[ The average and standard deviation of critical parameters ]
+        {\small Various CLI Git commands examples. (a) represents the initialization of directory which is connected to remote Git repository. (b) shows an use case of \texttt{clone} command that files in remote repository is cloned to designated local repository. (c) is the result of clone process of (b). After a few updates of files which are cloned from the remote repository are settled, corresponding modifications are applied to remote repository with commands: add, and commit as (d).} 
+        \label{fig:CLI_commands_init_clone_etc}
+    \end{figure*}
+    
+\subsubsection{Upload and download the modification: push and pull}
+\hspace*{2mm}After the connecting task between local and remote repository is done, aforementioned Git commands, \texttt{push} and \texttt{pull} can be used for uploading and downloading the source files respectively. The Fig.~\ref{fig:CLI_push_pull} (a) represents the push command for uploading modification of local files to remote repository. User can push the intent contents with typing a command \texttt{sudo git push}. In other words, the push command literally \textit{push} the local project folder to remote storage and update the project files stored in remote storage. On the other hand, the \textit{pull} command is utilized for getting files of project stored in remote repository with command \texttt{sudo git pull}. If there exists modification on remote repository, user can apply it to her own local repository with the pull command as Fig.~\ref{fig:CLI_push_pull} (b).
 
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.475\textwidth}
+            \centering
+            \includegraphics[width=\textwidth, height = 6cm]{CLI_push.jpeg}
+            \caption[Network2]%
+            {{\small Git command: \texttt{push}}}    
+            \label{fig:mean and std of net14}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.475\textwidth}  
+            \centering 
+            \includegraphics[width=\textwidth, height = 6cm]{CLI_pull.jpeg}
+             \caption[Network2]%
+            {{\small Git command: \texttt{pull}}}    
+            \label{fig:mean and std of net24}
+        \end{subfigure}
+        \caption[Network2]%
+        {\small Git command \texttt{push} and \texttt{pull}. The \texttt{push} command upload the local directory to designated (connected) remote repository of Github. Moreover, if one of teammates uploads a new file called $Pull$\_$test$ as right side of Fig.~\ref{fig:CLI_push_pull} (b), user can download the file including other change of remote repository by typing \texttt{sudo git pull}. Then, the updated version of project in remote repository is \textit{pulled} to local repository as left side of Fig.~\ref{fig:CLI_push_pull} (b).} 
+        \label{fig:CLI_push_pull}
+\end{figure}
+ 
 \section{Conclusion}
-% 3. 깃이 무엇인지, 어떻게 사용하는지 살펴봄
-% 
+In conclusion, we navigated following viewpoints with this short article including: (1) what the Git is, (2) why we use the Git, and (3) what kind of the most frequently used commands of Git and how to use them. To sum up, it is obvious that the Git is efficient tool for sharing projects with Git users among all over the world. In addition, the Git is powerful utility in terms of controlling the software version. These outstanding features of Git can be realized with aforementioned simple commands and guideline.
+
+\begin{appendices}
+  \chapter{Consectetur adipiscing elit}
+\end{appendices}
+
 \end{document}
