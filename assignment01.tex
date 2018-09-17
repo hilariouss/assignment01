@@ -1,105 +1,58 @@
 \documentclass{article}
-\usepackage{epsfig}
-\renewcommand{\baselinestretch}{1}
-\setlength{\textheight}{9in}
-\setlength{\textwidth}{6.5in}
-\setlength{\headheight}{0in}
-\setlength{\headsep}{0in}
-\setlength{\topmargin}{0in}
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{0in}
-\setlength{\parindent}{.3in}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm,a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\setlength\parindent{24pt}
+\title{Technical report about how to use the utility Git \\ Data mining class assignment 01}
+\author{Name: Dohyun Kwon \\ Student ID: 2018120191}
+\date{September 2018}
+
 \begin{document}
 
-\leftline{Pat Q.~Student}
-\leftline{AME 20231}
-\leftline{18 January 2013}
+\maketitle
 
-\medskip
-This is a sample file in the text formatter \LaTeX.
-I require you to use it for the following reasons:
+We can easily control the version of developing software and share ongoing/completed projects with teammates efficiently by utilizing the outstanding tool, \textit{Git}. In addition, we can contribute other developers' open source projects with some simple commands of Git. In this short article, we navigate the overall features of the useful utility Git with some terms with detailed description and how to use the Git appropriately by examining use cases. 
 
+\section{Introduction of the Git}
+% 1. 깃이 무엇인지 설명
+The Git is the most widely used modern version control system in the world today. Vast amounts of open source codes are efficiently shared and controlled by users with different objectives: version control, cooperation, and sharing source code between various communities. Git users can download source code for studying others' work or upload their own work for sharing it with other researchers. In order to utilize the Git, knowledge of some terms and procedures are needed.  
+
+\subsection{Several terms of Git}
+% 1-1. 깃의 용어
+% itemize
 \begin{itemize}
-
-\item{It produces the best output of text, figures,
-      and equations of any
-      program I've seen.}
-
-\item{It is machine-independent. It runs on Linux, Macintosh (see {\tt TeXShop}), and Windows (see {\tt MiKTeX}) machines.
-     You can e-mail {\tt ASCII} text versions of most relevant files.}
-
-\item{It is the tool of choice for many research
-     scientists and engineers.
-     Many journals accept 
-     \LaTeX~ submissions, and many books
-     are written in \LaTeX.}
+    \item Repository \\
+    \hspace*{1mm} The \textbf{repository} is a storage in which all of projects are saved. The repository can be divided as follows: remote repository and local repository. The remote repository is stored in the \textit{Github} server, which manages the created Git remote repository from users in all over the world. On the other hand, the local repository stands for literally local repository, which is created in user's laptop. The two repositories are jointly connected to upload or download projects interchangeably with Git commands. \\ 
+    \hspace*{1mm} Users can add a $README.md$ file which descripts the corresponding project including its objective and overview. They can upload their projects which are stored in their own local repository to the Git repository. In addition, they can download their own work or others' open source project from the Git repositories. The procedure of downloading and uploading a file (or entire project files) can be easily applied through predefined Git commands. Corresponding Git commands are introduced in following items in details. 
+    \item Add and commit \\ 
+    \hspace*{1mm} Files in local repository (working directory in Fig.~\ref{fig:add_command}) could be added to \textit{index}, which remains variety of versions of source code of working directory with command \textbf{add}. The index can be described as $version$ $control$ $tree$, and user can settle the final version of local repository with the command \textbf{commit}. Now, the user is ready to apply the latest files of local repository to the remote Git repository. Corresponding command \textbf{push} is introduced in following item. 
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width = \linewidth]{add_commit.jpeg}
+        \caption{The description of git commands: add and commit. The local repository consists of working directory, index, and head as above. Various versions of source codes could be added to index (staging) and one of them could be applied to the head with commit command.}
+        \label{fig:add_command}
+    \end{figure}
+    
+    \item Push and pull \\
+    \hspace*{1mm} Firstly, user can apply her updated source codes in local repository to remote repository by utilizing the command \textbf{push}. On the other hand, the command \textbf{pull} enables user to update the local repository with files of remote repository. To sum up, users can update their local/remote repository with the command pull and push respectively. In case of some crash issues regarding mismatching between local repository and remote repository, users should manually upload/download source files.
+    
+    \item Branch \\
+    \hspace*{1mm} If there are many teammates with an ongoing project, it is difficult to remain a central version of source files. For addressing this challenge, the Git supports remarkable function, \textbf{branch}, which enables teammates to hold their own version of main source files. This procedure is called as \textit{branch off}. After completing their own work, they can \textit{merge} their work to the main files.
 
 \end{itemize}
-\medskip
-Some basic instructions are given next.
-Put your text in here.  You can be a little sloppy    about
-spacing.  It adjusts the text to look good.
-{\small You can make the text smaller.}
-{\tiny You can make the text tiny.}
 
-Skip a line for a new paragraph.   
-You can use italics ({\em e.g.} {\em  Thermodynamics is everywhere}) or {\bf bold}.
-Greek letters are a snap: $\Psi$, $\psi$,
-$\Phi$, $\phi$.  Equations within text are easy---
-A well known Maxwell thermodynamic relation is
-$\left.{\partial T \over \partial p}\right|_{s} = 
-\left.{\partial v \over \partial s}\right|_{p}$.
-You can also set aside equations like so:
-\begin{eqnarray}
-du &=& Tds -p dv, \qquad \mbox{first law}\\
-ds &\ge& {dq \over T}.\qquad  \qquad \mbox{second law} \label{ee}
-\end{eqnarray}
-Eq.~(\ref{ee}) is the second law.
-References\footnote{Lamport, L., 1986, {\em \LaTeX: User's Guide \& Reference Manual},
-    Addison-Wesley: Reading, Massachusetts.}
-are available. 
-If you have an postscript file, say {\tt sample.figure.eps}, in the same local directory,
-you can insert the file as a figure.  Figure \ref{sample}, below, plots an isotherm for air modeled as an ideal gas. 
-\begin{figure}[ht]
-\epsfxsize=2.5in
-\centerline{\epsffile{sample.figure.eps}}
-\caption{Sample figure plotting $T=300~K$ isotherm for air when modeled as an ideal gas.}
-\label{sample}
-\end{figure}
+\section{How to use the Git}
+% 2. 깃 사용 예시
+In this section, overall process for utilizing the useful version control utility, Git, is introduced in detail. Specifically, we navigate the use case of Git for two approaches: command line interface (CLI) and graphic user interface (GUI). In case of CLI use case, aforementioned commands are used in CLI environment for accomplishing each procedure. On the other hand, GUI based Git tool, \textbf{GitKraken} is introduced as well.
 
-\medskip
-\leftline{\em Running \LaTeX}
-\medskip
+\subsection{Command line interface (CLI) use case: Git bash}
+% 2-1. CLI 사용
 
-You can create a \LaTeX~ file with any text editor ({\tt vi}, {\tt emacs}, {\tt gedit}, 
-etc.). 
-To get a document, you need to run the \LaTeX~ application
-on the text file.  The text file must have the suffix ``{\tt .tex}''
-On a Linux cluster machine, this is done via the command
+\subsection{Graphic user interface (GUI) use case: GitKraken}
+% 2-2. GUI 사용 (크라켄)
 
-\medskip
-{\tt latex file.tex}
-
-\medskip
-\noindent
-This generates three files: {\tt file.dvi}, {\tt file.aux},
-and {\tt file.log}.  The most important is {\tt file.dvi}. 
-
-\medskip
-\noindent
-The finished product can be previewed in the following way.
-Execute the commands:
-
-\medskip
-
-{\tt dvipdf file.dvi}\hspace{1.9in}{\em Linux System}
-
-\medskip
-\noindent
-This command generates {\tt file.pdf}.  
-Alternatively, you can use {\tt TeXShop} on a Macintosh or {\tt MiKTeX} on a Windows-based machine.
-The {\tt .tex} file must have a closing statement as
-below.
-
-
+\section{Conclusion}
+% 3. 깃이 무엇인지, 어떻게 사용하는지 살펴봄
+% 
 \end{document}
